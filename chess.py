@@ -4,9 +4,210 @@
 #class RookPiece:
 from tkinter import *
 from tkinter import ttk
+import PIL
+from PIL import ImageTk
+from PIL import Image
+from pynput import mouse
 
 
-class BoardSetup:
+def ReturnClickCoords(x, y):
+    if x >= 0 and x<= 100 and y>=900 and y <=1000 :
+        print("a1")
+        return "a1"
+    if x >= 0 and x<= 100 and y>=800 and y <=900 :
+        print("a2")
+        return "a2"
+    if x >= 0 and x<= 100 and y>=700 and y <=800 :
+        print("a3")
+        return "a3"
+    if x >= 0 and x<= 100 and y>=600 and y <=700 :
+        print("a4")
+        return "a4"
+    if x >= 0 and x<= 100 and y>=500 and y <=600 :
+        print("a5")
+        return "a5"
+    if x >= 0 and x<= 100 and y>=400 and y <=500 :
+        print("a6")
+        return "a6"
+    if x >= 0 and x<= 100 and y>=300 and y <=400 :
+        print("a7")
+        return "a7"
+    if x >= 0 and x<= 100 and y>=200 and y <=300 :
+        print("a8")
+        return "a8"
+    if x >= 100 and x<= 200 and y>=900 and y <=1000:
+        print("b1")             
+        return "b1"             
+    if x >= 100 and x<= 200 and y>=800 and y <=900  :
+        print("b2")             
+        return "b2"             
+    if x >= 100 and x<= 200 and y>=700 and y <=800  :
+        print("b3")             
+        return "b3"             
+    if x >= 100 and x<= 200 and y>=600 and y <=700  :
+        print("b4")             
+        return "b4"             
+    if x >= 100 and x<= 200 and y>=500 and y <=600 : 
+        print("b5")             
+        return "b5"             
+    if x >= 100 and x<= 200 and y>=400 and y <=500:  
+        print("b6")             
+        return "b6"             
+    if x >= 100 and x<= 200 and y>=300 and y <=400  :
+        print("b7")             
+        return "b7"             
+    if x >= 100 and x<= 200 and y>=200 and y <=300  :
+        print("b8")
+        return "b8"
+    if x >= 200 and x<= 300 and y>=900 and y <=1000 :
+        print("c1")           
+        return "c1"           
+    if x >= 200 and x<= 300 and y>=800 and y <=900 : 
+        print("c2")           
+        return "c2"           
+    if x >= 200 and x<= 300 and y>=700 and y <=800 : 
+        print("c3")           
+        return "c3"           
+    if x >= 200 and x<= 300 and y>=600 and y <=700  :
+        print("c4")           
+        return "c4"           
+    if x >= 200 and x<= 300 and y>=500 and y <=600 : 
+        print("c5")           
+        return "c5"           
+    if x >= 200 and x<= 300 and y>=400 and y <=500 : 
+        print("c6")           
+        return "c6"           
+    if x >= 200 and x<= 300 and y>=300 and y <=400 : 
+        print("c7")           
+        return "c7"           
+    if x >= 200 and x<= 300 and y>=200 and y <=300 : 
+        print("c8")
+        return "c8"
+    if x >= 300 and x<= 400 and y>=900 and y <=1000 :
+        print("d1")           
+        return "d1"           
+    if x >= 300 and x<= 400 and y>=800 and y <=900 : 
+        print("d2")           
+        return "d2"           
+    if x >= 300 and x<= 400 and y>=700 and y <=800 : 
+        print("d3")           
+        return "d3"           
+    if x >= 300 and x<= 400 and y>=600 and y <=700 : 
+        print("d4")           
+        return "d4"           
+    if x >=300 and x<= 400 and y>=500 and y <=600 : 
+        print("d5")           
+        return "d5"           
+    if x >= 300 and x<= 400 and y>=400 and y <=500  :
+        print("d6")           
+        return "d6"           
+    if x >= 300 and x<= 400 and y>=300 and y <=400 : 
+        print("d7")           
+        return "d7"           
+    if x >= 300 and x<= 400 and y>=200 and y <=300  :
+        print("d8")
+        return "d8"
+    if x >= 400 and x<= 500 and y>=900 and y <=1000 :
+        print("e1")           
+        return "e1"           
+    if x >= 400 and x<= 500 and y>=800 and y <=900 : 
+        print("e2")           
+        return "e2"           
+    if x >= 400 and x<= 500 and y>=700 and y <=800 : 
+        print("e3")           
+        return "e3"           
+    if x >= 400 and x<= 500 and y>=600 and y <=700  :
+        print("e4")           
+        return "e4"           
+    if x >= 400 and x<= 500 and y>=500 and y <=600 : 
+        print("e5")           
+        return "e5"           
+    if x >= 400 and x<= 500 and y>=400 and y <=500  :
+        print("e6")           
+        return "e6"           
+    if x >= 400 and x<= 500 and y>=300 and y <=400  :
+        print("e7")           
+        return "e7"           
+    if x >= 400 and x<= 500 and y>=200 and y <=300  :
+        print("e8")
+        return "e8"
+    if x >= 500 and x<= 600 and y>=900 and y <=1000 :
+        print("f1")           
+        return "f1"           
+    if x >= 500 and x<= 600 and y>=800 and y <=900  :
+        print("f2")           
+        return "f2"           
+    if x >= 500 and x<= 600 and y>=700 and y <=800  :
+        print("f3")           
+        return "f3"           
+    if x >= 500 and x<= 600 and y>=600 and y <=700  :
+        print("f4")           
+        return "f4"           
+    if x >= 500 and x<= 600 and y>=500 and y <=600  :
+        print("f5")           
+        return "f5"           
+    if x >= 500 and x<= 600 and y>=400 and y <=500  :
+        print("f6")           
+        return "f6"           
+    if x >= 500 and x<= 600 and y>=300 and y <=400  :
+        print("f7")           
+        return "f7"           
+    if x >= 500 and x<= 600 and y>=200 and y <=300  :
+        print("f8")
+        return "f8"
+    if x >= 600 and x<= 700 and y>=900 and y <=1000 :
+        print("g1")           
+        return "g1"           
+    if x >= 600 and x<= 700 and y>=800 and y <=900:  
+        print("g2")           
+        return "g2"           
+    if x >= 600 and x<= 700 and y>=700 and y <=800 : 
+        print("g3")           
+        return "g3"           
+    if x >= 600 and x<= 700 and y>=600 and y <=700  :
+        print("g4")           
+        return "g4"           
+    if x >= 600 and x<= 700 and y>=500 and y <=600 : 
+        print("g5")           
+        return "g5"           
+    if x >= 600 and x<= 700 and y>=400 and y <=500 : 
+        print("g6")           
+        return "g6"           
+    if x >= 600 and x<= 700 and y>=300 and y <=400  :
+        print("g7")           
+        return "g7"           
+    if x >= 600 and x<= 700 and y>=200 and y <=300  :
+        print("g8")
+        return "g8"
+    if x >= 700 and x<= 800 and y>=900 and y <=1000 :
+        print("h1")           
+        return "h1"           
+    if x >= 700 and x<= 800 and y>=800 and y <=900 : 
+        print("h2")           
+        return "h2"           
+    if x >= 700 and x<= 800 and y>=700 and y <=800 : 
+        print("h3")           
+        return "h3"           
+    if x >= 700 and x<= 800 and y>=600 and y <=700  :
+        print("h4")           
+        return "h4"           
+    if x >= 700 and x<= 800 and y>=500 and y <=600 : 
+        print("h5")           
+        return "h5"           
+    if x >= 700 and x<= 800 and y>=400 and y <=500 : 
+        print("h6")           
+        return "h6"           
+    if x >= 700 and x<= 800 and y>=300 and y <=400  :
+        print("h7")           
+        return "h7"	          
+    if x >= 700 and x<= 800 and y>=200 and y <=300  :
+        print("h8")
+        return "h8"	
+
+    return "Outside"
+
+
+class BuildBoard:
 
     gui = Tk(className='Chess')
     # set window size
@@ -102,9 +303,57 @@ class BoardSetup:
     canvas.create_text(10, 410, text="6", fill="black", font=('Helvetica 14'))
     canvas.create_text(10, 310, text="7", fill="black", font=('Helvetica 14'))
     canvas.create_text(10, 210, text="8", fill="black", font=('Helvetica 14'))
-    canvas.create_image(100,100,image='terrible_rook.png', anchor=NW)
+    img = ImageTk.PhotoImage(Image.open("terrible_black_rook.png"))
+    img1 = ImageTk.PhotoImage(Image.open("keen_black_queen.png"))
+    img2 = ImageTk.PhotoImage(Image.open("fling_black_king.png"))
+    img3 = ImageTk.PhotoImage(Image.open("terribishop_black.png"))
+    img4 = ImageTk.PhotoImage(Image.open("terrihorseakaknight.png"))
+    img5 = ImageTk.PhotoImage(Image.open("ponny.png"))    
+    
+    canvas.create_image(10,910,image=img, anchor=NW)
+    canvas.create_image(410,910,image=img1, anchor=NW)
+    canvas.create_image(310,910,image=img2, anchor=NW)
+    canvas.create_image(210,910,image=img3, anchor=NW)
+    canvas.create_image(510,910,image=img3, anchor=NW)
+    canvas.create_image(610,900,image=img4, anchor=NW)
+    canvas.create_image(110,900,image=img4, anchor=NW)
+    canvas.create_image(10,800,image=img5, anchor=NW)
+    canvas.create_image(410,800,image=img5, anchor=NW)
+    canvas.create_image(310,800,image=img5, anchor=NW)
+    canvas.create_image(210,800,image=img5, anchor=NW)
+    canvas.create_image(510,800,image=img5, anchor=NW)
+    canvas.create_image(610,800,image=img5, anchor=NW)
+    canvas.create_image(110,800,image=img5, anchor=NW)
+    canvas.create_image(700,800,image=img5, anchor=NW)
+    canvas.create_image(700,900,image=img, anchor=NW)
+
+    def selectPiece(event):  
+        print("clicked at: ", event.x, event.y)
+        click1 = ReturnClickCoords(event.x, event.y)
+        canvas.bind("<Button-3>", movePiece)
+        if click1 == "a1" :
+            print("Done")
+
+    def movePiece(event):
+        print("MoveX= ",event.x, "MoveY= ",event.y) 
+        return event.x, event.y
+    
+    #menu= StringVar()
+    #menu.set("Select Any Language")
+    #drop= OptionMenu(gui, menu,"C++", "Java","Python","JavaScript","Rust","GoLang")
+    #drop.pack()
+
+    canvas.bind("<Button-1>", selectPiece)
+    
+
+    
     gui.mainloop()
-    BoardSetup()
+    
+class SetAllMovement:
+   print("theo")
+    
+    
+BuildBoard()
 ##root = Tk()
 ##frm = ttk.Frame(root, padding=10)
 ##frm.grid()
@@ -116,4 +365,3 @@ class BoardSetup:
 
 
 
-print("Hey, im controlling")
